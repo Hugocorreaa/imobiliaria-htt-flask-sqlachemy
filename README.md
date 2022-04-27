@@ -8,6 +8,7 @@ Projeto final da etapa técnica do programa High Tech Talents. Trata-se de um si
   <td><strong>Made with:</strong></td>
   <td>Html</td>
   <td>Css</td>
+  <td>Python</td>
   <td>Flask</td>
   <td>Flask Alchemy</td>
   <td>PostgreSQL</td>

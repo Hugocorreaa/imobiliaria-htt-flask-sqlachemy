@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <title>Lista de Corretores</title>
+</head>
+
+<body>
+
+   <main>
+      <h1>Lista de Corretores</h1>
+      <a class="cadastro-buttom" href="{{ url_for('new_corretor') }}"><h3>Cadastrar Novo Corretor</h3></a>
+      
+      {%- for message in get_flashed_messages() %}
+      <div class="message">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left">   
+            <table>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Nome</th>
+                     <th>Data Nascimento</th>
+                     <th>telefone</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for corretor in corretores %}
+                  <tr>
+                     <td>{{ corretor.id }}</td>
+                     <td>{{ corretor.nome }}</td>
+                     <td>{{ corretor.data_nascimento }}</td>
+                     <td>{{ corretor.telefone }}</td>
+                     <th class="editar-buttom" ><a href="{{ url_for('update_corretor', id=corretor.id) }}">Editar</a></th>
+                     <th class="excluir-buttom" ><a href="{{ url_for('corretor_delete', id=corretor.id)}}">Excluir</a></th>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+
+         <div id="right">
+
+         </div>
+
+      </section>
+      <a class="menu-buttom" href="{{ url_for('index')}}">Voltar para Menu</a></th>
+   </main>
+</body>
+
+</html>

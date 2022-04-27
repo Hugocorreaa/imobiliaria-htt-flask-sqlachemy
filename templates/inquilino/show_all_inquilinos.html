@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <title>Lista de Inquilinos</title>
+</head>
+
+<body>
+   <main>
+      <h1>Lista de Inquilinos</h1>
+      <a class="cadastro-buttom" href="{{ url_for('new_inquilino') }}"><h3>Cadastrar Novo Inquilino</h3></a>
+
+      {%- for message in get_flashed_messages() %}
+      <div class="message">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left">
+
+            <table>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Nome</th>
+                     <th>Data Nascimento</th>
+                     <th>telefone</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for inquilino in inquilinos %}
+                  <tr>
+                     <td>{{ inquilino.id }}</td>
+                     <td>{{ inquilino.nome }}</td>
+                     <td>{{ inquilino.data_nascimento }}</td>
+                     <td>{{ inquilino.telefone }}</td>
+                     <th class="editar-buttom"><a href="{{ url_for('update_inquilino', id=inquilino.id) }}">Editar</a>
+                     </th>
+                     <th class="excluir-buttom"><a href="{{ url_for('inquilino_delete', id=inquilino.id)}}">Excluir</a>
+                     </th>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+
+         <div id="right">
+
+         </div>
+      </section>
+      <a class="menu-buttom" href="{{ url_for('index')}}">Voltar para Menu</a></th>
+   </main>
+</body>
+
+</html>

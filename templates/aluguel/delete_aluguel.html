@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <title>Excluir Aluguel</title>
+</head>
+
+<body>
+   <main>
+      <h1>Exclusão de Imovel</h1>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+      <div class="alert alert-danger">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left">
+            <form action="" method="POST">
+               <b>Id:</b> {{ aluguel.id }}<br>
+               <b>Id do Imóvel:</b> {{ aluguel.id_imovel }}<br>
+               <b>Id do Inquilino:</b> {{ aluguel.id_inquilino }}<br>
+               <b>Id do Corretor:</b> {{ aluguel.id_corretor }}<br>
+               <input class="enviar" type="submit" value="Excluir" />
+            </form>
+         </div>
+         <div id="right"></div>
+      </section>
+      <a class="menu-buttom" href="{{ url_for('show_all_alugueis') }}">Voltar para Lista</a>
+   </main>
+</body>
+
+</html>

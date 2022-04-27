@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <link rel="stylesheet" href="/static/style/new_imovel/style_new_aluguel.css">
+   <title>Cadastrar Aluguel</title>
+</head>
+
+<body>
+   <main>
+      <h1>Cadastro de Aluguel</h1>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+      <div class="message">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left">
+            <form action="{{ request.path }}" method="post">
+               <input type="text" name="id_imovel" placeholder="Id do Imóvel" /><br>
+               <input type="text" name="id_inquilino" placeholder="Id do Inquilino" /><br>
+               <input type="text" name="id_corretor" placeholder="Id do Corretor" /><br>
+               <input class="enviar" type="submit" value="Inserir" />
+            </form>
+         </div>
+
+         <div id="right">
+            <h1>Imovéis Cadastrados</h1>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Logradouro</th>
+                     <th>CEP</th>
+                     <th>Bairro</th>
+                     <th>Cidade</th>
+                     <th>ID Proprietário</th>
+                     <th>Valor</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for imovel in imoveis %}
+                  <tr>
+                     <td>{{ imovel.id }}</td>
+                     <td>{{ imovel.logradouro }}</td>
+                     <td>{{ imovel.cep }}</td>
+                     <td>{{ imovel.bairro }}</td>
+                     <td>{{ imovel.cidade }}</td>
+                     <td>{{ imovel.id_proprietario }}</td>
+                     <td>R$ {{ imovel.valor }}</td>
+                  {% endfor %}
+               </tbody>
+            </table>
+
+            <h1>Inquilinos Cadastrados</h1>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Nome</th>
+                     <th>Data Nascimento</th>
+                     <th>telefone</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for inquilino in inquilinos %}
+                  <tr>
+                     <td>{{ inquilino.id }}</td>
+                     <td>{{ inquilino.nome }}</td>
+                     <td>{{ inquilino.data_nascimento }}</td>
+                     <td>{{ inquilino.telefone }}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+
+            <h1>Corretores Cadastrados</h1>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Nome</th>
+                     <th>Data Nascimento</th>
+                     <th>telefone</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for corretor in corretores %}
+                  <tr>
+                     <td>{{ corretor.id }}</td>
+                     <td>{{ corretor.nome }}</td>
+                     <td>{{ corretor.data_nascimento }}</td>
+                     <td>{{ corretor.telefone }}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+
+         </div>
+      </section>
+      <a class="menu-buttom" href="{{ url_for('show_all_alugueis') }}">Voltar para Lista</a>
+   </main>
+</body>
+
+</html>

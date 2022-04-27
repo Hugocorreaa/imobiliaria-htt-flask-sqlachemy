@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <title>Lista de Imóveis</title>
+</head>
+
+<body>
+
+   <main>
+      <h1>Lista de Imóveis</h1>
+      <a class="cadastro-buttom" href="{{ url_for('new_imovel') }}"><h3>Cadastrar Novo Imóvel</h3></a>
+
+
+      {%- for message in get_flashed_messages() %}
+      <div class="message">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left" class="imovel-left">
+            <table>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Logradouro</th>
+                     <th>CEP</th>
+                     <th>Bairro</th>
+                     <th>Cidade</th>
+                     <th>ID Proprietário</th>
+                     <th>Valor</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for imovel in imoveis %}
+                  <tr>
+                     <td>{{ imovel.id }}</td>
+                     <td>{{ imovel.logradouro }}</td>
+                     <td>{{ imovel.cep }}</td>
+                     <td>{{ imovel.bairro }}</td>
+                     <td>{{ imovel.cidade }}</td>
+                     <td>{{ imovel.id_proprietario }}</td>
+                     <td>R$ {{ imovel.valor }}</td>
+                     <th class="editar-buttom" ><a href="{{ url_for('update_imovel', id=imovel.id) }}">Editar</a></th>
+                     <th class="excluir-buttom" ><a href="{{ url_for('imovel_delete', id=imovel.id)}}">Excluir</a></th>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+
+
+         <div id="right" class="imovel-right">
+
+         </div>
+
+      </section>
+      <a class="menu-buttom" href="{{ url_for('index')}}">Voltar para Menu</a></th>
+   </main>
+</body>
+
+</html>

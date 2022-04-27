@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <title>Lista de Proprietários</title>
+</head>
+
+<body>
+
+   <main>
+      <h1>Lista de Proprietários</h1>
+      <a class="cadastro-buttom" href="{{ url_for('new_proprietario') }}"><h3>Cadastrar Novo Proprietário</h3></a>
+
+      {%- for message in get_flashed_messages() %}
+      <div class="message">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left">
+            <table>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Nome</th>
+                     <th>Data Nascimento</th>
+                     <th>telefone</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for proprietario in proprietarios %}
+                  <tr>
+                     <td>{{ proprietario.id }}</td>
+                     <td>{{ proprietario.nome }}</td>
+                     <td>{{ proprietario.data_nascimento }}</td>
+                     <td>{{ proprietario.telefone }}</td>
+                     <th class="editar-buttom" ><a href="{{ url_for('update_proprietario', id=proprietario.id) }}">Editar</a></th>
+                     <th class="excluir-buttom" ><a href="{{ url_for('proprietario_delete', id=proprietario.id)}}">Excluir</a></th>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+
+         <div id="right">
+
+         </div>
+      </section>
+      <a class="menu-buttom" href="{{ url_for('index')}}">Voltar para Menu</a></th>
+
+
+   </main>
+
+
+
+
+
+
+</body>
+
+</html>

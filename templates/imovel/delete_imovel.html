@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <title>Excluir Imóvel</title>
+</head>
+
+<body>
+
+   <main>
+      <h1>Exclusão de Imóvel</h1>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+      <div class="message">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left">
+            <form action="" method="POST">
+               <b>Id:</b> {{ imovel.id }}<br>
+               <b>Logradouro:</b> {{ imovel.logradouro }}<br>
+               <b>CEP:</b> {{ imovel.cep }}<br>
+               <b>Bairro:</b> {{ imovel.bairro }}<br>
+               <b>Cidade:</b> {{ imovel.cidade }}<br>
+               <b>Id Proprietário:</b> {{ imovel.id_proprietario }}<br>
+               <b>Valor:</b> {{ imovel.valor }}<br>
+               <input class="enviar" type="submit" value="Excluir" />
+            </form>
+         </div>
+         <div id="right"></div>
+      </section>
+      <a class="menu-buttom" href="{{ url_for('show_all_imoveis') }}">Voltar para Lista</a>
+   </main>
+</body>
+
+</html>

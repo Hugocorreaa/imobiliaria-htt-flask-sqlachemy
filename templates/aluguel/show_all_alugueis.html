@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <title>Lista de Alugueis</title>
+</head>
+
+<body>
+
+   <main>
+      <h1>Lista de Alugueis</h1>
+      <a class="cadastro-buttom" href="{{ url_for('new_aluguel') }}"><h3>Cadastrar Novo Aluguel</h3></a>
+
+      {%- for message in get_flashed_messages() %}
+      <div class="message">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left">
+            <table>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Id Imovel</th>
+                     <th>Id Inquilino</th>
+                     <th>Id Corretor</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for aluguel in alugueis %}
+                  <tr>
+                     <td>{{ aluguel.id }}</td>
+                     <td>{{ aluguel.id_imovel }}</td>
+                     <td>{{ aluguel.id_inquilino }}</td>
+                     <td>{{ aluguel.id_corretor }}</td>
+                     <th class="editar-buttom"><a href="{{ url_for('update_aluguel', id=aluguel.id) }}">Editar</a></th>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+
+         <div id="right">
+
+         </div>
+      </section>
+      <a class="menu-buttom" href="{{ url_for('index')}}">Voltar para Menu</a></th>
+   </main>
+</body>
+
+</html>

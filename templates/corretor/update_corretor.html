@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <title>Atualização Corretor</title>
+
+</head>
+
+<body>
+   <main>
+      <h1>Atualização de Corretor</h1>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+      <div class="message">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left">
+            <form action="" method="POST">
+               <input type="hidden" name="id_corretor" value="{{corretor.id}}" /><br>
+               <input type="text" name="nome" placeholder="Nome" value="{{corretor.nome}}" /><br>
+               <input type="date" name="data_nascimento" placeholder="Data de Nascimento"
+                  value="{{corretor.data_nascimento}}" /><br>
+               <input type="text" name="telefone" placeholder="(xx) xxxxx-xxxx" / value="{{corretor.telefone}}"><br>
+               <input class="enviar" type="submit" value="Atualizar" />
+            </form>
+         </div>
+
+         <div id="right">
+
+         </div>
+      </section>
+      <a class="menu-buttom" href="{{ url_for('show_all_corretores') }}">Voltar para Lista</a>
+   </main>
+</body>
+
+</html>

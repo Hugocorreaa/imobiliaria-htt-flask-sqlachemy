@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style/style_menu.css">
+    <title>Imobiliária HTT</title>
+</head>
+<body>
+    <main>
+        <h1>Imobiliária HTT</h1>
+        <section id="left-right">
+            <div id="left"> 
+                <h3>
+                    <ul>
+                        <ol><a href = "{{ url_for('show_all_inquilinos') }}">Lista de Inquilinos</a></ol>
+                        <ol><a href = "{{ url_for('show_all_proprietarios') }}">Lista de Proprietarios</a></ol>
+                        <ol><a href = "{{ url_for('show_all_corretores') }}">Lista de Corretores</a></ol>
+                        <ol><a href = "{{ url_for('show_all_imoveis') }}">Lista de Imoveis</a></ol>
+                        <ol><a href = "{{ url_for('show_all_alugueis') }}">Lista de Alugueis</a></ol>
+                    </ul>
+                </h3>
+            </div>
+            <div id="right">
+
+            </div>
+        </section>
+    </main>
+</body>
+</html>

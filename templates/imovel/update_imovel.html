@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/static/style/style_lista_cadastro.css">
+   <link rel="stylesheet" href="/static/style/new_imovel/style_new_imovel.css">
+
+   <title>Atualização Imovel</title>
+</head>
+
+<body>
+   <main>
+      <h1>Atualização de Imovel</h1>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+      <div class="message">{{ message }}</div>
+      {%- endfor %}
+
+      <section id="left-right">
+         <div id="left">
+            <form action="" method="POST">
+               <input type="hidden" name="id_imovel" value="{{imovel.id}}" /><br>
+               <input type="text" name="logradouro" placeholder="Logradouro" value="{{imovel.logradouro}}" /><br>
+               <input type="text" name="cep" placeholder="CEP" value="{{imovel.cep}}" /><br>
+               <input type="text" name="bairro" placeholder="Bairro" value="{{imovel.bairro}}" /><br>
+               <input type="text" name="cidade" placeholder="Cidade" value="{{imovel.cidade}}" /><br>
+               <input type="text" name="id_proprietario" placeholder="Id do Proprietário"
+                  value="{{imovel.id_proprietario}}" /><br>
+               <input type="text" name="valor" placeholder="Valor" value="{{imovel.valor}}" /><br>
+               <input class="enviar" type="submit" value="Atualizar" />
+            </form>
+         </div>
+         <div id="right">
+            <h1>Proprietários Cadastrados</h1>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Nome</th>
+                     <th>Data Nascimento</th>
+                     <th>telefone</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for proprietario in proprietarios %}
+                  <tr>
+                     <td>{{ proprietario.id }}</td>
+                     <td>{{ proprietario.nome }}</td>
+                     <td>{{ proprietario.data_nascimento }}</td>
+                     <td>{{ proprietario.telefone }}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </section>
+      <a class="menu-buttom" href="{{ url_for('show_all_imoveis') }}">Voltar para Lista</a>
+   </main>
+</body>
+
+</html>

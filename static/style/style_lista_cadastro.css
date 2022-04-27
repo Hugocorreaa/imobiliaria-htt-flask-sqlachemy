@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* LISTAGEM */
+
+body {
+    background-image: url("../img/thumbnail.png");
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Roboto", sans-serif;
+}
+
+main {
+    height: 90vh;
+    width: 85%;
+
+    background-color: rgba(255, 255, 255, 0.645);
+    filter: drop-shadow(0px 20px 32px rgba(162, 162, 170, 0.16));
+    border-radius: 16px;
+
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position: right 5% bottom 40%;
+
+    margin-top: 2%;
+}
+
+.menu-buttom {
+    height: 4%;
+    width: 15%;
+
+    background: #61a0b4;
+    border-radius: 8px;
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Lato", sans-serif;
+
+    margin-left: 40%;
+}
+
+h1 {
+    color: #14596c;
+    font-weight: bold;
+    margin: 3% 0 20px 5%;
+}
+
+#left-right {
+    height: auto;
+
+    display: flex;
+
+    margin-bottom: 10px;
+}
+
+#left {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cadastro-buttom {
+    padding: 10px;
+    margin: 0 0 20px 5%;
+
+    width: 29%;
+
+    background: #61a0b4;
+    border-radius: 8px;
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Lato", sans-serif;
+}
+
+.cadastro-buttom:hover,
+.menu-buttom:hover {
+    background: #a5cedb;
+}
+
+.message {
+    color: red;
+    margin-left: 5%;
+}
+
+table {
+    border: 1px solid black;
+
+    margin-top: 10px;
+}
+
+th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+.editar-buttom {
+    border: none;
+    border-radius: 10px;
+    background-color: #bacf69;
+
+    cursor: pointer;
+}
+
+.editar-buttom:hover {
+    background-color: #d8e998;
+}
+
+.excluir-buttom {
+    border: none;
+    border-radius: 10px;
+    background-color: #c64444;
+
+    cursor: pointer;
+}
+
+.excluir-buttom:hover {
+    background-color: #cb5e5e;
+}
+
+#right {
+    width: 50%;
+}
+
+.imovel-left {
+    width: 60% !important;
+}
+
+.imovel-right {
+    width: 40% !important;
+}
+
+/* CADASTRO */
+
+input {
+    height: 48px;
+    width: 326px;
+
+    background: #ffffff;
+
+    border: 1px solid #d0d0d0;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    margin: 10px;
+
+    padding: 5px;
+}
+
+.enviar{
+    cursor: pointer;
+    background-color: rgb(180, 180, 180);
+
+    color: white;
+
+    font-family: "Lato", sans-serif;
+    font-size: 18px;
+}
+
+.enviar:hover{
+    background-color:rgb(204, 204, 204) ;
+}
+
